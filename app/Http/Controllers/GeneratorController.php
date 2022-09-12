@@ -18,9 +18,9 @@ class GeneratorController extends Controller
         $automakers = Automaker::all();
         $products = Product::all();
 
-        //$pdf = PDF::loadView('catalogue', compact('products', 'automakers'));
-        //return $pdf->setOptions(['isPhpEnabled' => true, 'isRemoteEnabled' => true])->setPaper('A4')->stream('catalogo.pdf');
+        $pdf = PDF::loadView('catalogue', compact('products', 'automakers'));
+        return $pdf->setPaper('A4')->stream('catalogo.pdf');
 
-        return view('catalogue', compact('products', 'automakers'));
+        //return view('catalogue', compact('products', 'automakers'));
     }
 }

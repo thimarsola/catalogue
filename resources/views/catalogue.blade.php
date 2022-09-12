@@ -2,24 +2,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Catálogo</title>
     <style>
         /*reset */
-        html, body, div, span, applet, object, iframe,
-        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code,
-        del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var,
-        b, u, i, center,
-        dl, dt, dd, ol, ul, li,
-        fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td,
-        article, aside, canvas, details, embed,
-        figure, figcaption, footer, header, hgroup,
-        menu, nav, output, ruby, section, summary,
-        time, mark, audio, video {
+        * {
             margin: 0;
             padding: 0;
             border: 0;
@@ -113,8 +99,7 @@
                     Descrição
                 </th>
                 <th scope="col">
-{{--                    <img src="{{ url(Storage::url($automaker->logo)) }}" alt="Logo {{ $automaker->name }}" class="h-20">--}}
-                    <img src="{{ url(asset('storage/' . $automaker->logo)) }}" alt="Logo {{ $automaker->name }}">
+                    <img src="{{ public_path('storage/' . $automaker->logo) }}" alt="Logo {{ $automaker->name }}">
                 </th>
             </tr>
             </thead>
@@ -124,7 +109,7 @@
                 @if($product->cars()->first()->automaker_id == $automaker->id)
                     <tr>
                         <td>
-                            <img src="{{ url(asset('storage/' . $product->thumb)) }}" alt="Logo {{ $product->name }}">
+                            <img src="{{ public_path('storage/' . $product->thumb) }}" alt="Logo {{ $product->name }}">
                         </td>
                         <td>
                             {{ $product->internal_code }}
